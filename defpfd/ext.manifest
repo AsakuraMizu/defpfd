@@ -1,0 +1,10 @@
+name: "defpfd"
+
+platforms:
+    x86_64-win32:
+        context:
+            libs: ["ComDlg32", "Ole32"]
+            defines: ["WIN64_LABEL"]
+    x86-win32:
+        context:
+            libs: ["ComDlg32", "Ole32"]

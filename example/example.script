@@ -1,0 +1,62 @@
+local function start()
+	defpfd.settings.verbose(true)
+
+	defpfd.notify("Important Notification", "This is ' a message, pay \" attention \\ to it!", defpfd.icon.info)
+
+	local m = defpfd.message("Personal Message", "You are an amazing person, don’t let anyone make you think otherwise.", defpfd.choice.yes_no_cancel, defpfd.icon.warning)
+
+	local i = 0
+	while i < 10 and not m:ready(1000) do
+		print("Waited 1 second for user input...")
+		i = i + 1
+	end
+
+	local res = m:result()
+	if res == defpfd.button.yes then
+		print("User agreed.")
+	end
+	if res == defpfd.button.no then
+		print("User disagreed.")
+	end
+	if res == defpfd.button.cancel then
+		print("User freaked out.")
+	end
+
+	local f = defpfd.open_file("Choose files to read", "", { "Text Files (.txt .text)", "*.txt *.text", "All Files", "*" }):result()
+	print("Selected files:")
+	for k, v in pairs(f) do
+		print(v)
+	end
+
+	local dir = defpfd.select_folder("Select any directory"):result()
+	print("Selected dir: " .. dir)
+end
+
+function init(self)
+	start()
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	-- Add update code here
+	-- Remove this function if not needed
+end
+
+function on_message(self, message_id, message, sender)
+	-- Add message-handling code here
+	-- Remove this function if not needed
+end
+
+function on_input(self, action_id, action)
+	-- Add input-handling code here
+	-- Remove this function if not needed
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Remove this function if not needed
+end
