@@ -1,7 +1,7 @@
 local function start()
 	defpfd.settings.verbose(true)
 
-	defpfd.notify("Important Notification", "This is ' a message, pay \" attention \\ to it!", defpfd.icon.info)
+	defpfd.notify("Important Notification", "This is a message, pay \"attention\" to it!", defpfd.icon.info)
 
 	local m = defpfd.message("Personal Message", "You are an amazing person, don’t let anyone make you think otherwise.", defpfd.choice.yes_no_cancel, defpfd.icon.warning)
 
