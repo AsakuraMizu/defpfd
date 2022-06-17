@@ -8,3 +8,6 @@ platforms:
     x86-win32:
         context:
             libs: ["ComDlg32", "Ole32"]
+    x86_64-osx:
+        context:
+            flags: ["-std=c++11"]
